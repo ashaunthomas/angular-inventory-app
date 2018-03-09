@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { Product } from './product.model';
 
 @Component({
@@ -6,11 +6,12 @@ import { Product } from './product.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  product: Product[];
+  products: Product[];
   assetPath = '/assets/images/products/';
   constructor() {
-    this.product = [
+    this.products = [
       new Product(
         'MYSHOES',
         'Black Running Shoes',

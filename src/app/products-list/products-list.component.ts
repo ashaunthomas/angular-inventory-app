@@ -10,7 +10,7 @@ import { Product } from '../product.model';
   styleUrls: ['./products-list.component.css']
 })
 
-export class ProductsListComponent implements OnInit {
+export class ProductsListComponent {
   /*
    * @input productList - The Product[] passed to us
   */
@@ -32,7 +32,15 @@ export class ProductsListComponent implements OnInit {
     this.productSelected = new EventEmitter();
   }
 
-  ngOnInit() {
+  clicked(product: Product) {
+    this.currentProduct = product;
+    this.productSelected.emit(product);
+  }
+
+  isSelected(product: Product) {
+    if (!product || this.currentProduct) {
+      return false;
+    }
   }
 
 }
